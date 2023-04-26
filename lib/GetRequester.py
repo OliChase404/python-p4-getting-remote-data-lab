@@ -1,5 +1,8 @@
 import requests
 import json
+from ipdb import set_trace as st
+
+URL = "http://data.cityofnewyork.us/resource/uvks-tn5n.json"
 
 class GetRequester:
 
@@ -7,7 +10,11 @@ class GetRequester:
         self.url = url
 
     def get_response_body(self):
-        pass
+        response = requests.get(self.url)
+        return response.content
 
     def load_json(self):
-        pass
+        return json.loads(self.get_response_body())
+    
+    
+# st()
